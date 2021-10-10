@@ -15,3 +15,80 @@ a.selected {
   background-color: black;
   color: white;
 }
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+header nav li {
+  margin: 0 1rem;
+}
+
+a.active {
+  background: black;
+  color: white;
+}
+
+form {
+  margin: 10rem auto 0;
+  width: 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid #000;
+  border-radius: 5px;
+
+  padding: 1rem 2rem;
+}
+
+form h1 {
+  text-align: center;
+}
+
+form section {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: row;
+
+}
+
+form section label{
+  width: 30%;
+  text-align: right;
+}
+
+form section label:after{
+  content: ":";
+  margin-right: .5rem;
+}
+
+form section input{
+  width: 70%;
+}
+
+form section.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+button {
+  cursor: pointer;
+}
+
+form section:last-child {
+  justify-content: end;
+}
+
+form section:last-child p{
+  font-size: 0.9rem;
+}

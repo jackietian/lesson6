@@ -2,7 +2,6 @@ import { Route, Link, NavLink } from 'react-router-dom'
 import Course from "./Course"
 
 export default ({ match }) => {
-    console.log(match)
     return <section>
         <h1>Courses</h1>
         <ul>

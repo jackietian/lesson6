@@ -1,6 +1,5 @@
 const isAuthenticated = () => {
-    if(sessionStorage.getItem('username')) return true
-    return false
+    return sessionStorage.getItem('username') !== null
 }
 
 const login = () => {

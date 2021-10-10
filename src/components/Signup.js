@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { login, isAuthenticated } from "../service/auth";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default ({ history }) => {
   useEffect(() => {
@@ -15,14 +15,23 @@ export default ({ history }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Sign In</h1>
+      <h1>Sign Up</h1>
       <section>
         <label htmlFor="name">Name</label>
         <input type="text" name="name" id="name" name="name" />
       </section>
       <section>
-        <label htmlFor="name">Password</label>
+        <label htmlFor="password">Password</label>
         <input type="password" name="password" id="password" name="password" />
+      </section>
+      <section>
+        <label htmlFor="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          name="confirmPassword"
+          id="confirmPassword"
+          name="confirmPassword"
+        />
       </section>
       <section className="actions">
         <button type="reset">cancel</button>
@@ -31,7 +40,7 @@ export default ({ history }) => {
 
       <section>
         <p>
-          Dont have an account? <Link to="/signup">Sign Up here</Link>
+          Already have an account? <Link to="/">Sign in here</Link>
         </p>
       </section>
     </form>
