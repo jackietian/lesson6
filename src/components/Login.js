@@ -1,16 +1,17 @@
 import { useEffect } from "react";
 import { login, isAuthenticated } from "../service/auth";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
-export default ({ history }) => {
+export default () => {
+  const navigate = useNavigate();
   useEffect(() => {
-    if (isAuthenticated()) history.replace("/home");
-  });
+    if (isAuthenticated()) navigate("/home", { replace: true });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     login();
-    history.replace("/home");
+    navigate("/home", { replace: true });
   };
 
   return (
@@ -18,11 +19,11 @@ export default ({ history }) => {
       <h1>Sign In</h1>
       <section>
         <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" name="name" />
+        <input type="text" name="name" id="name" />
       </section>
       <section>
         <label htmlFor="name">Password</label>
-        <input type="password" name="password" id="password" name="password" />
+        <input type="password" name="password" id="password" />
       </section>
       <section className="actions">
         <button type="reset">cancel</button>
@@ -37,3 +38,10 @@ export default ({ history }) => {
     </form>
   );
 };
+
+// const browserHistoryQueue = ['signin']
+// browserHistoryQueue.push('home')
+// // ['signin', 'home']
+
+// browserHistoryQueue.replace('home')
+// // ['home']

@@ -1,14 +1,22 @@
-import { Route, Link, NavLink } from 'react-router-dom'
-import Course from "./Course"
+import { NavLink, useParams, useLocation, Outlet } from "react-router-dom";
 
-export default ({ match }) => {
-    return <section>
-        <h1>Courses</h1>
-        <ul>
-            <li><NavLink to={`${match.path}/js`}>JS</NavLink></li>
-            <li><NavLink to={`${match.path}/html`}>HTML</NavLink></li>
-            <li><NavLink to={`${match.path}/css`}>CSS</NavLink></li>
-        </ul>
-        <Route path={`${match.path}/:courseId`} component={Course} />
+export default () => {
+  let location = useLocation();
+  return (
+    <section>
+      <h1>Courses</h1>
+      <ul>
+        <li>
+          <NavLink to="js">JS</NavLink>
+        </li>
+        <li>
+          <NavLink to="html">HTML</NavLink>
+        </li>
+        <li>
+          <NavLink to="css">CSS</NavLink>
+        </li>
+      </ul>
+      <Outlet />
     </section>
-}
+  );
+};

@@ -18,20 +18,15 @@ export default ({ history }) => {
       <h1>Sign Up</h1>
       <section>
         <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" name="name" />
+        <input type="text" name="name" id="name" />
       </section>
       <section>
         <label htmlFor="password">Password</label>
-        <input type="password" name="password" id="password" name="password" />
+        <input type="password" name="password" id="password" />
       </section>
       <section>
         <label htmlFor="confirmPassword">Confirm Password</label>
-        <input
-          type="password"
-          name="confirmPassword"
-          id="confirmPassword"
-          name="confirmPassword"
-        />
+        <input type="password" name="confirmPassword" id="confirmPassword" />
       </section>
       <section className="actions">
         <button type="reset">cancel</button>

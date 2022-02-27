@@ -1,11 +1,15 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { logout } from '../service/auth'
+import { logout } from "../service/auth";
 
-export default function(props) {
-    useEffect(() => {
-        logout()
-        props.history.replace('/')
-    })
-    return <h1>Logout</h1>
-}
+const Logout = (props) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    logout();
+    navigate("/login", { replace: true });
+  }, []);
+  return <h1>Logout</h1>;
+};
+
+export default Logout;

@@ -1,33 +1,28 @@
-import {
-  BrowserRouter as Router,
-  HashRouter,
-  Link,
-  NavLink,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Login from "./components/Login";
-import home from "./components/Home";
+import Home from "./components/Home";
 import Courses from "./components/Courses";
 import Logout from "./components/Logout";
-import ProtectedRoute from "./components/ProtectedRoute";
-import Signup from './components/Signup'
+import Signup from "./components/Signup";
+import ProtectedLayout from "./components/ProtectedLayout";
+import Course from "./components/Course";
 
 function App() {
   return (
     <Router>
-      <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/signup" exact component={Signup} />
-        <ProtectedRoute path="/home" component={home} />
-        <ProtectedRoute path="/courses" component={Courses} />
-        <Route path="/logout" component={Logout} />
-        <Route>
-          <Redirect to="/" />
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/" element={<ProtectedLayout />}>
+          <Route path="home" element={<Home />} />
+          <Route path="courses" element={<Courses />}>
+            <Route path=":courseId" element={<Course />} />
+          </Route>
         </Route>
-      </Switch>
+        <Route path="/logout" element={<Logout />} />
+        <Route path="*" element={<h1>path not found</h1>} />
+      </Routes>
     </Router>
   );
 }
